@@ -14,7 +14,7 @@ export const getUrl = (req, res) => {
   res.json({
     success: true,
     message: "short url generated successfully ",
-    shortUrl: `http://localhost:10000/${shortOne}`,
+    shortUrl: `https://url-shortner-pgne.onrender.com/${shortOne}`,
   });
 };
 
