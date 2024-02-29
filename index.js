@@ -48,7 +48,7 @@ app.post("/url-shortner", (req, res) => {
 app.get("/:shortUrl", (req, res) => {
   const shortUrlPath = req.params.shortUrl;
 //   const recordData = fs.readFileSync("record.json").toString();
-  const urlData = JSON.parse(recordData);
+//   const urlData = JSON.parse(recordData);
   const longUrl = urlData[shortUrlPath];
 
   if (longUrl && isValidUrl(longUrl)) {
