@@ -14,9 +14,13 @@ const __dirname = path.dirname(__filename)
 
 app.use(express.json());
 
-const writeFile = (data) => {
-  fs.writeFileSync("record.json", data);
-};
+let urlData = {
+    
+}
+
+// const writeFile = (data) => {
+//   fs.writeFileSync("record.json", data);
+// };
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -29,15 +33,15 @@ app.post("/url-shortner", (req, res) => {
   const url = req.body.url;
   log(url);
   const shortUrlPath = nanoid(8);
-  let recordData = fs.readFileSync("record.json");
-  let urlData = JSON.parse(recordData.toString());
+//   let recordData = fs.readFileSync("record.json");
+//   let urlData = JSON.parse(recordData.toString());
 
   urlData[shortUrlPath] = url;
 
   writeFile(JSON.stringify(urlData));
   res.json({
     success: true,
-    shortUrl: `http://localhost:10000/${shortUrlPath}`,
+    shortUrl: `https://lok-ii.github.io/url-shortner/${shortUrlPath}`,
   });
 });
 
@@ -47,7 +51,7 @@ app.get("/:shortUrl", (req, res) => {
   const urlData = JSON.parse(recordData);
   const longUrl = urlData[shortUrlPath];
 
-  if (longUrl) {
+  if (longUrl && isValidUrl(longUrl)) {
     res.redirect(longUrl);
   } else {
     res.status(404).send("URL not found");
