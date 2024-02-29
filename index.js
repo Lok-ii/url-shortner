@@ -8,14 +8,17 @@ import fs, { write } from "node:fs";
 import bodyParser from "body-parser";
 import { fileURLToPath } from "node:url";
 import urlRouter from "./routes/url.js"
+import dotenv from "dotenv";
 const app = express();
 const port = 10000;
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 mongoose
-  .connect("mongodb://localhost:27017/urlShortner")
+  .connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.8eetsng.mongodb.net/urlShortner`)
   .then(() => {
     log("Database connected successfully");
   })
