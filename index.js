@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename)
 app.use(express.json());
 
 let urlData = {
-    
+
 }
 
 // const writeFile = (data) => {
@@ -47,7 +47,7 @@ app.post("/url-shortner", (req, res) => {
 
 app.get("/:shortUrl", (req, res) => {
   const shortUrlPath = req.params.shortUrl;
-  const recordData = fs.readFileSync("record.json").toString();
+//   const recordData = fs.readFileSync("record.json").toString();
   const urlData = JSON.parse(recordData);
   const longUrl = urlData[shortUrlPath];
 
