@@ -11,5 +11,5 @@ const urlSchema = {
     }
 }
 
-const urlModel = mongoose.model("url", urlSchema);
+const urlModel = mongoose.model("urls", urlSchema);
 export default urlModel;
