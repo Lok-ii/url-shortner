@@ -1,10 +1,7 @@
 import { log, error } from "node:console";
-// import axios from "axios"
 import mongoose from "mongoose";
 import express from "express";
 import path from "node:path";
-import { nanoid } from "nanoid";
-import fs, { write } from "node:fs";
 import bodyParser from "body-parser";
 import { fileURLToPath } from "node:url";
 import urlRouter from "./routes/url.js"
