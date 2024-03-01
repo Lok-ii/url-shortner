@@ -15,7 +15,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 mongoose
-  .connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kqkudei.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/urlShortner`)
+  .connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.kqkudei.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/test`)
   .then(() => {
     log("Database connected successfully");
   })
